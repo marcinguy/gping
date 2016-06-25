@@ -9,6 +9,7 @@ import os
 import struct
 import sys
 import time
+import random
 
 import gevent
 from gevent import socket
@@ -18,6 +19,8 @@ from gevent.event import Event
 import argparse
 import json
 import pprint
+
+from tqdm import tqdm
 
 # From /usr/include/linux/icmp.h; your milage may vary.
 ICMP_ECHO_REQUEST = 8 # Seems to be the same on Solaris.
@@ -51,7 +54,7 @@ def checksum(source_string):
 
 def test_callback(ping):
     if(ping['success']):
-      print str(ping['dest_addr'])+","+str(ping['success'])
+      #print str(ping['dest_addr'])+","+str(ping['success'])
       resfile.write(str(ping['dest_addr'])+","+str(ping['success'])+"\n")
 
 
@@ -241,14 +244,16 @@ if __name__ == '__main__':
       random.shuffle(lines)
       data = lines
     else:
-      data = open(input,'rU')
+      with open(input,'rU') as f:
+        lines = f.read().splitlines()
+      data = lines
 
     resfile = open(output,'w')
-
+   
     gp = GPing()
-    for domain in data:
+    for domain in tqdm(data):
         temp=domain.rstrip()
         hostname=temp.split(',')[0]
-        print hostname
+        #print hostname
         gp.send(hostname,test_callback)
     gp.join()
