@@ -17,7 +17,6 @@ from gevent.pool import Pool
 from gevent.event import Event
 
 import argparse
-import json
 import pprint
 
 from tqdm import tqdm
