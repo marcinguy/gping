@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+__author__ = "Marcin Kozlowski <marcinguy@gmail.com>"
+
+
 """
     This part is a fork of the python-ping project that makes 
     things work with gevent.
