@@ -4,7 +4,7 @@ Python asynchronous ICMP ping with progressbar
 
 ## Description
 
-Python asynchronous ICMP ping with progressbar. Cut the ping time with asynchroneous opertions (ca. 40 pings per second)
+Python asynchronous ICMP ping with progressbar. Cut the ping time with asynchroneous operations (ca. 40 pings per second)
 
 ![](images/gping.png)
 
