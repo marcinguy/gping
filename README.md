@@ -6,6 +6,8 @@ Asynchronous IP ping with progressbar
 
 Asynchronous IP ping with progressbar. Cut the ping time with asynchroneous opertions (ca 40 pings per second)
 
+![](images/gping.png)
+
 ## Dependencies
 
 
